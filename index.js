@@ -3,6 +3,9 @@ import {
   skills,
   education,
   experience,
+  projects,
+  certifications,
+  awards,
   footer,
   contactLinks,
 } from "./user-data/data.js";
@@ -16,7 +19,7 @@ async function fetchBlogsFromMedium(url) {
   try {
     const response = await fetch(url);
     const { items, feed } = await response.json();
-    document.getElementById("profile-img").src = feed.image;
+  document.getElementById("profile-img").src = "images/profile/profile.webp" || feed.image;
     populateBlogs(items, "blogs");
   } catch (error) {
     throw new Error(
@@ -69,7 +72,7 @@ function mapBasicResponse(basics) {
     website,
   } = basics;
 
-  window.parent.document.title = name;
+  // Removed dynamic title change to prevent flickering
 }
 
 function populateBio(items, id) {
@@ -321,6 +324,18 @@ function getBlogDate(publishDate) {
   }
 }
 
+// Set profile image and handle any loading errors
+document.addEventListener('DOMContentLoaded', function() {
+    const profileImg = document.getElementById("profile-img");
+    if (profileImg) {
+        profileImg.onerror = function() {
+            console.error('Error loading profile image');
+            this.src = 'images/profile/default-avatar.png'; // Fallback image
+        };
+  profileImg.src = "images/profile/profile.webp";
+    }
+});
+
 populateBio(bio, "bio");
 
 populateSkills(skills, "skills");
@@ -332,5 +347,107 @@ fetchGitConnectedData(gitConnected);
 populateExp_Edu(experience, "experience");
 populateExp_Edu(education, "education");
 
+function populateProjects(items, id) {
+  const projectsContainer = document.getElementById(id);
+  if (!projectsContainer || !items?.length) return;
+
+  const tagsTemplate = (tags) => html`
+    <div class="tags-container">
+      ${tags.map((tag) => html`<div class="profile-badge brown-badge">${tag}</div>`)}
+    </div>
+  `;
+
+  const projectTemplate = html`
+    ${items.map(
+      (project) => html`
+        <div class="col-md-6 animate-box">
+          <a href="${project.link}" target="_blank" class="project-card">
+            <div class="project-image" style="background-image: url('${project.image}')">
+              <div class="project-overlay">
+                <div class="project-icon">
+                  <i class="fa fa-${project.icon}"></i>
+                </div>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">${project.title}</h3>
+              <p class="project-description">${project.description}</p>
+              ${tagsTemplate(project.tags)}
+              <div class="github-link">
+                <i class="fa fa-github"></i> View on GitHub
+              </div>
+            </div>
+          </a>
+        </div>
+      `
+    )}
+  `;
+
+  render(projectTemplate, projectsContainer);
+}
+
+function populateCertifications(items, id) {
+  const certificationsContainer = document.getElementById(id);
+  if (!certificationsContainer || !items?.length) return;
+
+  const certTemplate = html`
+    ${items.map(
+      (cert) => html`
+        <div class="col-md-6 animate-box">
+          <div class="certification-card">
+            <div class="cert-header">
+              <img src="${cert.logo}" alt="${cert.issuer} Logo" class="cert-logo">
+              <div class="cert-icon">
+                <i class="fa fa-${cert.icon}"></i>
+              </div>
+            </div>
+            <h3 class="cert-title">${cert.title}</h3>
+            <p class="cert-issuer">${cert.issuer} (${cert.date})</p>
+            <p class="cert-id">Credential ID: ${cert.credentialId}</p>
+            <p class="cert-description">${cert.description}</p>
+            <a href="${cert.link}" target="_blank" class="cert-link">
+              <i class="fa fa-external-link"></i>
+              Verify Certificate
+            </a>
+          </div>
+        </div>
+      `
+    )}
+  `;
+
+  render(certTemplate, certificationsContainer);
+}
+
+function populateAwards(items, id) {
+  const awardsContainer = document.getElementById(id);
+  if (!awardsContainer || !items?.length) return;
+
+  const awardTemplate = html`
+    ${items.map(
+      (award) => html`
+        <div class="col-md-6 animate-box">
+          <div class="award-card">
+            <img src="${award.image}" alt="${award.title}" class="award-image">
+            <div class="award-content">
+              <div class="award-icon">
+                <i class="fa fa-${award.icon}"></i>
+              </div>
+              <h3 class="award-title">${award.title}</h3>
+              <p class="award-issuer">${award.issuer}</p>
+              <p class="award-date">${award.date}</p>
+              <p class="award-description">${award.description}</p>
+            </div>
+          </div>
+        </div>
+      `
+    )}
+  `;
+
+  render(awardTemplate, awardsContainer);
+}
+
+populateProjects(projects, "projects");
+populateCertifications(certifications, "certifications");
+populateAwards(awards, "awards");
 populateLinks(footer, "footer");
 populateContactLinks(contactLinks, 'contact-links');

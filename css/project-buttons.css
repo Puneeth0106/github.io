@@ -1,0 +1,30 @@
+.project-card {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 15px;
+  color: #2c98f0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.github-link i {
+  margin-right: 8px;
+}
+
+/* Create images directory and ensure proper paths */
+.project-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

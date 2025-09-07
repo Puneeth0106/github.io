@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Puneeth-Portfolio </title>
+  <!-- Removed incorrect image preload link -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Portfolio webpage of Vinay Somawat" />
+    <meta name="description" content="Portfolio webpage of Puneeth Kumar Amudala" />
     <meta
       name="keywords"
-      content="portfolio,website,personal website,github,projects,computer science and engineering"
+      content="portfolio,website,personal website,github,projects,Data engineering,Data analytics,Data Science"
     />
-    <meta name="author" content="Vinay Somawat" />
+    <meta name="author" content="Puneeth Kumar Amudala" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -26,6 +27,7 @@
     />
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/project-buttons.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -33,7 +35,6 @@
 
     <script src="js/modernizr-2.6.2.min.js"></script>
     <script type="module" src="index.js"></script>
-    <script type="module" src="js/profile-card.js"></script>
   </head>
   <body>
     <div id="colorlib-page">
@@ -53,10 +54,11 @@
           class="border js-fullheight no-print"
         >
           <div class="text-center">
-            <div class="author-img">
-              <img id="profile-img" />
-            </div>
-            <h1 id="colorlib-logo"><a href="./index.html">Vinay Somawat</a></h1>
+                      <div class="author-img">
+            <img src="./images/profile/profile.jpg" alt="Profile Photo" id="profile-img" width="250" height="333" style="display:block;" loading="eager" />
+            <img src="./images/profile/profile.webp" alt="Profile Photo" id="profile-img" width="250" height="333" style="display:block;" loading="eager" onload="this.classList.add('loaded')" />
+          </div>
+            <h1 id="colorlib-logo"><a href="./index.html">Puneeth Kumar Amudala</a></h1>
           </div>
           <nav
             id="colorlib-main-menu"
@@ -73,10 +75,12 @@
                 </li>
                 <li><a href="#" data-nav-section="education">Education</a></li>
                 <li>
-                  <a href="#" data-nav-section="repos">Top Repositories</a>
+                  <a href="#" data-nav-section="projects">Projects</a>
                 </li>
-                <li><a href="#" data-nav-section="blogs">Blogs</a></li>
-                <li><a href="#" data-nav-section="contact">Contact</a></li>
+                <li>
+                  <a href="#" data-nav-section="certifications">Certifications</a>
+                </li>
+                <li><a href="#" data-nav-section="awards">Awards</a></li>
               </ul>
             </div>
           </nav>
@@ -105,26 +109,7 @@
               <div id="skills" class="row"></div>
             </div>
           </section>
-          <section class="colorlib-profile" data-section="profile-card">
-            <div class="colorlib-narrow-content">
-              <div
-                class="row row-bottom-padded-sm animate-box"
-                data-animate-effect="fadeInLeft"
-              >
-                <div class="profile-cards">
-                  <div class="col">
-                    <div class="stack-card" user-id="8461233"></div>
-                  </div>
-                  <div class="col">
-                    <div class="github-card" username="vinaysomawat"></div>
-                  </div>
-                  <div class="col">
-                    <div class="leetcode-card" username="somawatvinay"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+
           <section class="colorlib-experience" data-section="experience">
             <div class="colorlib-narrow-content">
               <div
@@ -151,82 +136,52 @@
               <div class="timeline-centered" id="education"></div>
             </div>
           </section>
-          <section class="colorlib-experience no-print" data-section="repos">
+          <section class="colorlib-projects" data-section="projects">
             <div class="colorlib-narrow-content">
               <div
                 class="row row-bottom-padded-sm animate-box"
                 data-animate-effect="fadeInLeft"
               >
                 <div class="about-desc">
-                  <a
-                    href="https://github.com/vinaysomawat"
-                    target="_blank"
-                    style="color: inherit"
-                  >
-                    <h1>
-                      Top <span style="color: #f9bf3f">Repositories</span>
-                      <i
-                        class="fa fa-external-link"
-                        aria-hidden="true"
-                        style="font-size: 30px"
-                      ></i>
-                    </h1>
-                  </a>
+                  <h1>Featured <span style="color: #f9bf3f">Projects</span></h1>
                 </div>
               </div>
-              <ul
-                id="accordion"
-                class="accordion animate-box"
-                data-animate-effect="fadeInLeft"
-              >
-                <li class="open">
-                  <ul
-                    id="repos"
-                    class=""
-                    style="display: block; padding: 0px"
-                  ></ul>
-                </li>
-              </ul>
+              <div class="row" id="projects">
+                <!-- Projects will be populated dynamically -->
+              </div>
             </div>
           </section>
-          <section class="colorlib-blogs no-print" data-section="blogs">
+          <section class="colorlib-certifications" data-section="certifications">
             <div class="colorlib-narrow-content">
               <div
                 class="row row-bottom-padded-sm animate-box"
                 data-animate-effect="fadeInLeft"
               >
                 <div class="about-desc">
-                  <a
-                    href="https://vinaysomawat.medium.com/"
-                    target="_blank"
-                    style="color: inherit"
-                  >
-                    <h1>
-                      Latest <span style="color: #f9bf3f">Blogs</span>
-                      <i
-                        class="fa fa-external-link"
-                        aria-hidden="true"
-                        style="font-size: 30px"
-                      ></i>
-                    </h1>
-                  </a>
+                  <h1>Professional <span style="color: #f9bf3f">Certifications</span></h1>
                 </div>
               </div>
-              <ul
-                id="accordion"
-                class="accordion animate-box"
-                data-animate-effect="fadeInLeft"
-              >
-                <li class="open">
-                  <ul
-                    id="blogs"
-                    class="submenu"
-                    style="display: flex; flex-direction: column; gap: 20px"
-                  ></ul>
-                </li>
-              </ul>
+              <div class="row" id="certifications">
+                <!-- Certifications will be populated dynamically -->
+              </div>
             </div>
           </section>
+                    <section class="colorlib-awards" data-section="awards">
+            <div class="colorlib-narrow-content">
+              <div
+                class="row row-bottom-padded-sm animate-box"
+                data-animate-effect="fadeInLeft"
+              >
+                <div class="about-desc">
+                  <h1>Awards & <span style="color: #f9bf3f">Recognitions</span></h1>
+                </div>
+              </div>
+              <div class="row" id="awards">
+                <!-- Awards will be populated dynamically -->
+              </div>
+            </div>
+          </section>
+          <section class="colorlib-footer no-print">
           <section class="colorlib-contact" data-section="contact">
             <div class="colorlib-narrow-content">
               <div
@@ -238,7 +193,7 @@
                 </div>
                 <p>
                   Feel free to email me at
-                  <strong>vinaysomawat40@gmail.com</strong> for tech
+                  <strong>puneethkumaramudala7@gmail.com</strong> for tech
                   discussions, business opportunities, or just to say hello—I’d
                   love to hear from you!
                 </p>
