@@ -23,7 +23,7 @@ Welcome to my personal portfolio website! This site showcases my projects, skill
 
 ## How to view
 
-Visit [https://Puneeth0106.github.io](https://Puneeth0106.github.io) to see the live site.
+Visit [https://Puneeth0106.github.io/github.io/](https://puneeth0106.github.io/github.io/) to see the live site.
 
 ## Contact
 
