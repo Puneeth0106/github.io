@@ -129,6 +129,14 @@ const data = {
       "link": "https://github.com/Puneeth0106/Crop-Disease-Management-System"
     },
     {
+      "title": "Soil-Moisture-Prediction-Using-ML",
+      "description": "Constructed a predictive models for precision farming by evaluating 4 machine learning algorithms, achieving an R² of 0.9975 and MSE of 0.00033 with a Voting Regressor ensemble to predict soil moisture in unsensed areas.",
+      "tags": ["Machine Learning", "Voting Regressor", "Precision Farming"],
+      "icon": "water",
+  "image": "images/projects/soil-moisture.jpg",
+      "link": "https://github.com/Puneeth0106/Soil-Moisture-Prediction-Using-Machine-Learning"
+    },
+    {
       "title": "AI-Driven News Intelligence Pipeline",
       "description": "Engineered an AI-driven pipeline in Microsoft Fabric, processing over 1,000 daily news articles with PySpark and a bronze-silver-gold architecture. Automated API ingestion and ML-based sentiment analysis on 30K+ records, delivering two Power BI dashboards for proactive monitoring.",
       "tags": ["Microsoft Fabric", "PySpark", "Machine Learning", "Power BI"],
